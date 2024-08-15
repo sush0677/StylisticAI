@@ -1,2 +1,2 @@
-# StylisticAI
+# AI-Fashion
  

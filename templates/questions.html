@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Style Questionnaire - StylisticAI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Page-specific styles */
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/Image.jpeg') no-repeat center center/cover;
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 6px 30px rgba(0, 0, 0, 0.4);
+            max-width: 600px;
+            margin: 60px auto;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ff4b3a;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ff6f61, #ff4b3a);
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .step {
+            display: none;
+        }
+
+        .step.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .example {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .btn-next, .btn-primary {
+            background-color: #ff6f61;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .btn-next:hover, .btn-primary:hover {
+            background-color: #ff4b3a;
+            transform: translateY(-2px);
+        }
+
+        footer.footer {
+            background-color: #1a1a1a;
+            color: #aaa;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 20px;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Questionnaire Style</h2>
+        <div class="form-container">
+            <form id="questionnaireForm" method="POST">
+                <!-- Step 1: User Type -->
+                <div class="step active">
+                    <div class="form-group">
+                        <label for="gender">Please select your gender:</label>
+                        <select class="form-control" id="gender" name="gender" required>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <p class="example">Example: Choose the option that best represents your gender identity.</p>
+                    </div>
+                    <input type="hidden" name="step" value="1">
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+
+                <!-- Step 2: Personal Style -->
+                <div class="step">
+                    <div class="form-group">
+                        <label for="personal_style">How would you describe your personal style?</label>
+                        <input type="text" class="form-control" id="personal_style" name="personal_style" placeholder="E.g., classic, trendy, bohemian, minimalist" required>
+                        <p class="example">Example: If you prefer timeless pieces, you might describe your style as "classic."</p>
+                    </div>
+                    <input type="hidden" name="step" value="2">
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+
+                <!-- Step 3: Colors Preference -->
+                <div class="step">
+                    <div class="form-group">
+                        <label for="color_preference">What colors do you feel most confident wearing?</label>
+                        <input type="text" class="form-control" id="color_preference" name="color_preference" placeholder="E.g., neutrals, bright colors" required>
+                        <p class="example">Example: If you prefer subtle tones, you might list "neutrals" like beige, grey, or navy.</p>
+                    </div>
+                    <input type="hidden" name="step" value="3">
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+
+                <!-- Step 4: Wardrobe Needs -->
+                <div class="step">
+                    <div class="form-group">
+                        <label for="wardrobe_needs">What types of outfits are you looking for?</label>
+                        <input type="text" class="form-control" id="wardrobe_needs" name="wardrobe_needs" placeholder="E.g., casual, workwear, formal, athleisure" required>
+                        <p class="example">Example: If you need outfits for the office, you might enter "workwear."</p>
+                    </div>
+                    <input type="hidden" name="step" value="4">
+                    <button type="button" class="btn btn-next">Next</button>
+                </div>
+
+                <!-- Step 5: Lifestyle -->
+                <div class="step">
+                    <div class="form-group">
+                        <label for="lifestyle">What is your typical day like?</label>
+                        <input type="text" class="form-control" id="lifestyle" name="lifestyle" placeholder="E.g., work, home, socializing, exercise" required>
+                        <p class="example">Example: If your day involves a lot of physical activity, you might describe it as "active" or "on-the-go."</p>
+                    </div>
+                    <input type="hidden" name="step" value="5">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+
+            {% if recommendation %}
+            <div class="mt-4">
+                <h3>Based on your responses, we recommend:</h3>
+                <p>{{ recommendation }}</p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; StylisticAI 2024</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript to handle the form steps
+        $(document).ready(function() {
+            let currentStep = 0;
+            const steps = $(".step");
+            const totalSteps = steps.length;
+
+            $(".btn-next").on("click", function() {
+                const currentForm = $(steps[currentStep]).find("input, select");
+                if (currentForm[0].checkValidity()) {
+                    currentStep++;
+                    if (currentStep < totalSteps) {
+                        $(steps).removeClass("active");
+                        $(steps[currentStep]).addClass("active");
+                    }
+                } else {
+                    currentForm[0].reportValidity();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

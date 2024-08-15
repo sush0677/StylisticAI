@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Recommendations - StylisticAI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Custom styles for the recommendation page */
+        .hero {
+            background: url('/static/Image2.jpeg') no-repeat center center/cover;
+            height: 60vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content {
+            z-index: 2;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            margin-top: -80px;
+            position: relative;
+            z-index: 3;
+        }
+
+        .btn-primary {
+            background-color: #ff6f61;
+            border: none;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #ff4b3a;
+            transform: translateY(-2px);
+        }
+
+        .recommendation-card {
+            background: #f4f4f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            margin-top: 40px;
+        }
+
+        .recommendation-card h3 {
+            color: #333;
+        }
+
+        .recommendation-image {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">Stylistic<span class="highlight">AI</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faqs">FAQs</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Find Your Perfect Style</h1>
+            <p>Get personalized fashion recommendations with StylisticAI</p>
+        </div>
+    </div>
+
+    <div class="container form-container mt-5">
+        <h2 class="text-center mb-4">Get Your Fashion Recommendation</h2>
+        <form method="POST">
+            <div class="form-group">
+                <label for="user_input">Enter a style or preference:</label>
+                <input type="text" class="form-control" id="user_input" name="user_input" placeholder="E.g., casual, formal, sporty" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+        </form>
+
+        {% if generated_trend %}
+        <div class="recommendation-card mt-4">
+            <h3>Recommendation:</h3>
+            <p>{{ generated_trend }}</p>
+            <img src="path_to_recommendation_image.jpg" alt="Fashion recommendation" class="recommendation-image">
+        </div>
+        {% endif %}
+    </div>
+
+    <footer class="footer mt-5">
+        <p>&copy; Stylistic<span class="highlight">AI</span> 2024</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

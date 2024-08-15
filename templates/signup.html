@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?fashion') no-repeat center center fixed;
+            background-size: cover;
+        }
+        .container {
+            margin-top: 100px;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .social-login {
+            margin: 20px 0;
+        }
+        .social-login button {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Create Account</h2>
+        <form method="POST" action="/signup">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="8+ characters, include letters and numbers" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+            <div class="text-center mt-3">
+                <p>or sign up using</p>
+            </div>
+            <div class="social-login">
+                <a href="/login/google" class="btn btn-danger btn-block">
+                    <i class="fab fa-google"></i> Sign up with Google
+                </a>
+                <a href="/login/github" class="btn btn-dark btn-block">
+                    <i class="fab fa-github"></i> Sign up with GitHub
+                </a>
+            </div>
+            <div class="text-center mt-3">
+                <a href="/login">Already have an account? Login here.</a>
+            </div>
+        </form>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

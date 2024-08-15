@@ -1,0 +1,149 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f4f4f9; /* Light, neutral background for elegance */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100vh;
+}
+
+.navbar {
+    background-color: #1a1a1a; /* Darker navbar for contrast */
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.navbar-brand .highlight {
+    color: #f85032; /* Accent color for branding */
+}
+
+.nav-link {
+    font-weight: 600;
+    color: #fff;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #f85032;
+}
+
+.hero {
+    background: url('Image1.jpeg') no-repeat center center/cover;
+    height: 60vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    background-size: cover;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay for better text contrast */
+}
+
+.hero-content {
+    z-index: 2;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    color: #ddd;
+    margin-top: 10px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Text shadow for better readability */
+}
+
+.hero-content .btn-cta {
+    margin-top: 20px;
+    padding: 10px 30px;
+    font-size: 1.2rem;
+    background-color: #f85032;
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.hero-content .btn-cta:hover {
+    background-color: #d14028;
+    transform: scale(1.05); /* Slight zoom effect on hover */
+}
+
+.features-section {
+    padding: 60px 0;
+}
+
+.feature {
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: #f85032;
+    margin-bottom: 20px;
+}
+
+.cards-section {
+    padding: 60px 0;
+}
+
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card-title {
+    font-weight: 600;
+    color: #333;
+}
+
+.card-text {
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.footer {
+    background-color: #1a1a1a;
+    color: #aaa;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer .highlight {
+    color: #f85032;
+}
+

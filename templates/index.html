@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StylisticAI - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Optional: Smooth scroll effect */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/">Stylistic<span class="highlight">AI</span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                {% if username %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile">Hello, {{ username }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/signup">Sign Up</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/faqs">FAQs</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Stylistic<span class="highlight">AI</span></h1>
+            {% if username %}
+            <p>Glad to see you again, {{ username }}!</p>
+            {% else %}
+            <p>Experience the revolution in digital fashion styling.</p>
+            {% endif %}
+            <a href="#recommendation-card" class="btn btn-cta">Get Started</a> <!-- Updated link to the ID -->
+        </div>
+    </header>
+    <section class="features-section container">
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-brain feature-icon"></i>
+                    <h5>AI-Powered Recommendations</h5>
+                    <p>Get personalized fashion advice tailored to your style preferences.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-question-circle feature-icon"></i>
+                    <h5>Interactive Style Quiz</h5>
+                    <p>Answer questions to discover your unique fashion profile.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="feature">
+                    <i class="fas fa-heart feature-icon"></i>
+                    <h5>Trending Styles</h5>
+                    <p>Stay updated with the latest trends curated just for you.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="cards-section container">
+        <div class="row">
+            <!-- Add an ID to this card section -->
+            <div class="col-md-6" id="recommendation-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Get Instant Fashion Recommendations</h5>
+                        <p class="card-text">Provide your input and get immediate fashion advice tailored just for you.</p>
+                        <a href="/recommendation" class="btn btn-primary">Go to Recommendations</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Fashion Style Questionnaire</h5>
+                        <p class="card-text">Answer a few questions to help us understand your style and preferences better.</p>
+                        <a href="/questions" class="btn btn-secondary">Take the Questionnaire</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; Stylistic<span class="highlight">AI</span> 2024</p>
+    </footer>
+</body>
+</html>
